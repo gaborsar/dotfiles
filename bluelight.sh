@@ -1,0 +1,15 @@
+#!/bin/bash
+
+night_mode() {
+    for disp in $(xrandr | sed -n 's/^\([^ ]*\).*connected.*/\1/p'); do
+        echo $disp $1 $2
+        xrandr --output $disp --gamma $1 --brightness $2
+    done
+}
+
+case $1 in
+    off) night_mode 1:1:1 1.0 ;;
+    *) night_mode 1:1:0.5 0.7 ;;
+esac
+
+
