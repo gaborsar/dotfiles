@@ -1,0 +1,7 @@
+URxvt.font: xft:Crisp:pixelsize=16
+URxvt.boldFont: xft:Crisp:pixelsize=16
+
+URxvt.scrollStyle: rxvt
+URxvt.scrollBar: false
+
+#include "Development/base16-xresources/xresources/base16-classic-dark.Xresources"

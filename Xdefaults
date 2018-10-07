@@ -1,8 +1,0 @@
-xft.antialias: false
-xft.hinting: true
-
-urxvt.font: xft:InputMono Narrow:pixelsize=12
-urxvt.boldFont: xft:InputMono Narrow:pixelsize=12
-
-urxvt.scrollStyle: rxvt
-urxvt.scrollBar: false

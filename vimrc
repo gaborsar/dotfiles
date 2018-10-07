@@ -32,9 +32,9 @@ set backspace=2
 
 set expandtab
 
-au BufNewFile,BufRead *.js set tabstop=4
-au BufNewFile,BufRead *.js set softtabstop=4
-au BufNewFile,BufRead *.js set shiftwidth=4
+au BufNewFile,BufRead *.js set tabstop=2
+au BufNewFile,BufRead *.js set softtabstop=2
+au BufNewFile,BufRead *.js set shiftwidth=2
 
 au BufNewFile,BufRead *.c set tabstop=4
 au BufNewFile,BufRead *.c set softtabstop=4
