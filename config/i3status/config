@@ -1,12 +1,12 @@
-order += "disk /home"
+order += "disk /"
 order += "ethernet _first_"
 order += "wireless _first_"
 order += "battery all"
 order += "volume master"
 order += "tztime local"
 
-disk "/home" {
-        format = "Home: %avail"
+disk "/" {
+        format = "Root: %avail"
 }
 
 ethernet _first_ {

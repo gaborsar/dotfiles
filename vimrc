@@ -1,10 +1,17 @@
 execute pathogen#infect()
 
-" base16-vim
-" ctrlp.vim
-" goyo.vim
-" nerdcommenter
-" vim-gitgutter
+" ack.vim          - https://github.com/mileszs/ack.vim
+" ctrlp.vim        - https://github.com/ctrlpvim/ctrlp.vim
+" editorconfig.vim - https://github.com/editorconfig/editorconfig-vim
+" gitgutter.vim    - https://github.com/airblade/vim-gitgutter
+" goyo.vim         - https://github.com/junegunn/goyo.vim
+" nerdcommenter    - https://github.com/scrooloose/nerdcommenter
+" surround.vim     - https://github.com/tpope/vim-surround
+" tsuquyomi        - https://github.com/Quramy/tsuquyomi
+" typescript-vim   - https://github.com/leafgarland/typescript-vim
+" vim-airline      - https://github.com/vim-airline/vim-airline
+" vimproc.vim      - https://github.com/Shougo/vimproc.vim
+" YouCompleteMe    - https://github.com/Valloric/YouCompleteMe
 
 filetype plugin indent on
 
@@ -32,19 +39,15 @@ set backspace=2
 
 set expandtab
 
-au BufNewFile,BufRead *.js set tabstop=2
-au BufNewFile,BufRead *.js set softtabstop=2
-au BufNewFile,BufRead *.js set shiftwidth=2
-
-au BufNewFile,BufRead *.c set tabstop=4
-au BufNewFile,BufRead *.c set softtabstop=4
-au BufNewFile,BufRead *.c set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 " =================
 "  CUSTOM COMMANDS
 " =================
 
-command Trim :%s/\s\+$//|''
+command Trim :%s/\s\+$//g
 command T :Trim
 command W :w
 command Q :q
@@ -52,17 +55,15 @@ command E :Explore
 command Wq :wq
 command WQ :wq
 
+imap jj <Esc>
+nmap tt :Trim
+nmap ww :w
+
 " ===============
 "  CUSTOM COLORS
 " ===============
 
-colorscheme base16-classic-dark
 hi ExtraWhitespace ctermbg=red
-
-" ===================
-"  CUSTOM HIGHLIGHTS
-" ===================
-
 match ExtraWhitespace /\s\+$/
 
 " =======================
