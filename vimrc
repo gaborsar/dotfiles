@@ -11,7 +11,6 @@ execute pathogen#infect()
 " https://github.com/tpope/vim-surround
 "
 " https://github.com/airblade/vim-gitgutter
-" https://github.com/vim-airline/vim-airline
 " https://github.com/junegunn/goyo.vim
 "
 " https://github.com/leafgarland/typescript-vim
@@ -21,7 +20,7 @@ execute pathogen#infect()
 
 filetype plugin indent on
 
-syntax on
+syntax off
 
 set spelllang=en
 
@@ -70,7 +69,6 @@ nmap ww :w
 "  CUSTOM COLORS
 " ===============
 
-hi VertSplit ctermbg=white ctermfg=black
 hi ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
 
