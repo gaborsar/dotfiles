@@ -1,4 +1,4 @@
-URxvt.font: xft:Input-Regular:pixelsize=12:antialiasing=true
+URxvt.font: xft:monospace:pixelsize=12:antialias=true
 
 URxvt.scrollStyle: rxvt
 URxvt.scrollBar: false

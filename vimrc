@@ -1,18 +1,6 @@
 execute pathogen#infect()
 
-" https://github.com/takac/vim-hardtime
-"
-" https://github.com/ctrlpvim/ctrlp.vim
-" https://github.com/mileszs/ack.vim
-"
 " https://github.com/editorconfig/editorconfig-vim
-"
-" https://github.com/scrooloose/nerdcommenter
-" https://github.com/tpope/vim-surround
-"
-" https://github.com/airblade/vim-gitgutter
-" https://github.com/junegunn/goyo.vim
-"
 " https://github.com/leafgarland/typescript-vim
 " https://github.com/neoclide/coc.nvim
 " https://github.com/neoclide/coc-tsserver
@@ -20,7 +8,7 @@ execute pathogen#infect()
 
 filetype plugin indent on
 
-syntax off
+syntax on
 
 set spelllang=en
 
@@ -48,6 +36,13 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+" ==============
+"  FUZZY SEARCH
+" ==============
+
+set path+=**
+set wildignore+=**/node_modules/**,**/DS_Store/**,**/.git/**,**/coverage/**
 
 " =================
 "  CUSTOM COMMANDS
@@ -79,11 +74,9 @@ match ExtraWhitespace /\s\+$/
 autocmd BufRead,BufNewFile *.tsx set filetype=typescript.tsx
 
 let g:hardtime_default_on = 1
-
-let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git\|coverage'
-
 let g:ale_fix_on_save = 1
-let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_linters = {'typescript': ['eslint'], 'typescript.tsx': ['eslint']}
+let g:ale_fixers = {'typescript': ['prettier', 'eslint'], 'typescript.tsx': ['prettier', 'eslint']}
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
