@@ -9,3 +9,6 @@ cp $HOME/.config/sway/config sway
 
 mkdir -p i3status
 cp $HOME/.config/i3status/config i3status
+
+mkdir -p foot
+cp $HOME/.config/foot/foot.ini foot
