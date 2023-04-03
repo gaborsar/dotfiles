@@ -1,0 +1,26 @@
+general {
+    colors = true
+    interval = 5
+}
+
+order += "volume master"
+order += "battery all"
+order += "tztime local"
+
+volume master {
+    format = "V:%volume"
+}
+
+battery all {
+    format = "B:%status%percentage"
+    hide_seconds = true
+    integer_battery_capacity = true
+    last_full_capacity = true
+    status_chr = "+"
+    status_bat = "-"
+    status_full = "!"
+}
+
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+}
