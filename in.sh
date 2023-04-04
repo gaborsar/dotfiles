@@ -12,3 +12,6 @@ cp $HOME/.config/i3status/config i3status
 
 mkdir -p foot
 cp $HOME/.config/foot/foot.ini foot
+
+mkdir -p helix
+cp $HOME/.config/helix/config.toml helix
