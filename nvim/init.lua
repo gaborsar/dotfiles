@@ -1,12 +1,20 @@
+vim.g.mapleader = " "
+
 require("nvim-treesitter.configs").setup {
-	ensure_installed = { "c", "lua", "vim", "help", "query", "typescript", "javascript", "dart" },
-	sync_install = false,
-	auto_install = true,
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
+  ensure_installed = { "c", "lua", "vim", "help", "query", "typescript", "javascript", "dart" },
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
 }
+
+local telescope = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", telescope.find_files)
+vim.keymap.set("n", "<leader>fg", telescope.live_grep)
+vim.keymap.set("n", "<leader>fb", telescope.buffers)
+vim.keymap.set("n", "<leader>fh", telescope.help_tags)
 
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
@@ -14,8 +22,7 @@ lsp.setup_servers({ "tsserver", "eslint", "tailwindcss", "lua_ls" })
 lsp.nvim_workspace()
 lsp.setup()
 
-local cmp = require("cmp");
-cmp.setup {
+require("cmp").setup {
   completion = {
     autocomplete = false,
   },
@@ -27,10 +34,13 @@ require("flutter-tools").setup {
   },
 }
 
+vim.cmd.colorscheme("rose-pine")
+
 vim.opt.laststatus = 2
-vim.api.nvim_set_hl(0, "Sl1", { ctermbg = "darkblue", ctermfg = "black" })
-vim.api.nvim_set_hl(0, "Sl2", { ctermbg = "black", ctermfg = "darkgray" })
-vim.api.nvim_set_hl(0, "Sl3", { ctermbg = "darkblue", ctermfg = "black" })
+vim.api.nvim_set_hl(0, "Sl1", { bg = "#003388", fg = "black" })
+vim.api.nvim_set_hl(0, "Sl2", { bg = "#1f1d2e", fg = "#6a6a86" })
+vim.api.nvim_set_hl(0, "Sl3", { bg = "#003388", fg = "black" })
+
 local sl = ""
 sl = sl .. "%#Sl1#"
 sl = sl .. " %{%v:lua.string.upper(v:lua.vim.fn.mode())%} "
@@ -40,8 +50,6 @@ sl = sl .. "%="
 sl = sl .. "%#Sl3#"
 sl = sl .." %l:%c %P "
 vim.opt.statusline = sl
-
-vim.g.mapleader = " "
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -63,8 +71,6 @@ vim.opt.path = vim.opt.path + "**"
 vim.opt.wildmenu = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
-vim.opt.updatetime = 100
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>rn", function()

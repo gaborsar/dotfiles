@@ -14,4 +14,4 @@ mkdir -p $HOME/.config/foot
 cp foot/foot.ini $HOME/.config/foot
 
 mkdir -p $HOME/.config/helix
-cp helix/config.toml $HOME/config/helix
+cp helix/config.toml $HOME/.config/helix
