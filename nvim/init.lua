@@ -19,9 +19,13 @@ vim.keymap.set("n", "<leader>fh", telescope.help_tags)
 
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
-lsp.setup_servers({ "tsserver", "tailwindcss", "lua_ls" })
+lsp.setup_servers({ "tsserver", "tailwindcss", "lua_ls", "jsonls", "yamlls" })
 lsp.nvim_workspace()
 lsp.setup()
+vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover)
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 
 require("cmp").setup {
   sources = {
@@ -71,19 +75,3 @@ vim.opt.path = vim.opt.path + "**"
 vim.opt.wildmenu = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
-vim.keymap.set("n", "<leader>rn", function()
-  vim.lsp.buf.rename()
-end)
-vim.keymap.set("n", "<leader>nb", function()
-  vim.cmd("! npm run build")
-end)
-vim.keymap.set("n", "<leader>nt", function()
-  vim.cmd("! npm run test")
-end)
-vim.keymap.set("n", "<leader>nj", function()
-  vim.cmd("! npm run jest -- %:p")
-end)
-vim.keymap.set("n", "<leader>df", function()
-  vim.cmd("! dart format %")
-end)
