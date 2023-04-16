@@ -75,3 +75,11 @@ vim.opt.path = vim.opt.path + "**"
 vim.opt.wildmenu = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.keymap.set("n", "<leader>bp", function ()
+  vim.cmd("bp")
+end)
+
+vim.keymap.set("n", "<leader>bn", function ()
+  vim.cmd("bn")
+end)
