@@ -2,7 +2,11 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 require("nvim-treesitter.configs").setup {
-  ensure_installed = { "c", "lua", "vim", "help", "query", "typescript", "javascript", "dart" },
+  ensure_installed = {
+    "c", "lua", "vim", "query",
+    "typescript", "javascript",
+    "dart", "python"
+  },
   sync_install = false,
   auto_install = true,
   highlight = {
@@ -19,7 +23,10 @@ vim.keymap.set("n", "<leader>fh", telescope.help_tags)
 
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
-lsp.setup_servers({ "tsserver", "tailwindcss", "lua_ls", "jsonls", "yamlls" })
+lsp.setup_servers({
+  "tsserver", "tailwindcss", "lua_ls",
+  "jsonls", "yamlls", "pyright"
+})
 lsp.nvim_workspace()
 lsp.setup()
 vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover)
