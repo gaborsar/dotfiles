@@ -5,7 +5,7 @@ require("nvim-treesitter.configs").setup {
   ensure_installed = {
     "c", "lua", "vim", "query",
     "typescript", "javascript",
-    "dart", "python"
+    "dart", "python",
   },
   sync_install = false,
   auto_install = true,
@@ -25,7 +25,7 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 lsp.setup_servers({
   "tsserver", "tailwindcss", "lua_ls",
-  "jsonls", "yamlls", "pyright"
+  "jsonls", "yamlls", "pyright",
 })
 lsp.nvim_workspace()
 lsp.setup()
@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 require("cmp").setup {
   sources = {
     { name = "nvim_lsp", max_item_count = 5 },
-  }
+  },
 }
 
 require("flutter-tools").setup {
@@ -46,7 +46,12 @@ require("flutter-tools").setup {
   },
 }
 
+require("rose-pine").setup({
+  disabled_background = true,
+})
 vim.cmd.colorscheme("rose-pine")
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 vim.opt.laststatus = 2
 vim.api.nvim_set_hl(0, "Sl1", { bg = "#005588", fg = "black" })

@@ -4,11 +4,11 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use {
     "rose-pine/neovim",
-    as = "rose-pine"
+    as = "rose-pine",
   }
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate"
+    run = ":TSUpdate",
   }
   use {
     "nvim-telescope/telescope.nvim",
