@@ -34,12 +34,6 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 
-require("cmp").setup {
-  sources = {
-    { name = "nvim_lsp", max_item_count = 5 },
-  },
-}
-
 require("flutter-tools").setup {
   closing_tags = {
     enabled = false,
