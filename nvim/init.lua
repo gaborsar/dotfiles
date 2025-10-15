@@ -1,16 +1,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>bp", function ()
-  vim.cmd("bp")
-end)
-vim.keymap.set("n", "<leader>bn", function ()
-  vim.cmd("bn")
-end)
-
 require("config.lazy")
 require("config.lsp")
+
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.api.nvim_create_user_command("W", "write", { nargs = "*", complete = "file", bang = true })
+vim.api.nvim_create_user_command("Q", "quit", { nargs = "?", bang = true })
 
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", telescope.find_files)
@@ -21,19 +17,11 @@ vim.keymap.set("n", "<leader>fh", telescope.help_tags)
 local lualine = require("lualine")
 lualine.setup()
 
+vim.opt.clipboard = "unnamedplus"
+vim.opt.smartindent = true
 vim.opt.laststatus = 2
-vim.api.nvim_set_hl(0, "Sl1", { bg = "yellow", fg = "black" })
-vim.api.nvim_set_hl(0, "Sl2", { bg = "black", fg = "white" })
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
-
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth =  2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -44,3 +32,33 @@ vim.opt.path = vim.opt.path + "**"
 vim.opt.wildmenu = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"javascript", "javascriptreact", "typescript", "typescriptreact", "lua"},
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"python"},
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.shiftwidth = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"c", "cpp"},
+  callback = function()
+    vim.bo.expandtab = false
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.shiftwidth = 4
+  end,
+})
