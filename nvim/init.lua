@@ -34,7 +34,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"javascript", "javascriptreact", "typescript", "typescriptreact", "lua"},
+  pattern = {"javascript", "javascriptreact", "typescript", "typescriptreact", "lua", "dart"},
   callback = function()
     vim.bo.expandtab = true
     vim.bo.tabstop = 2
